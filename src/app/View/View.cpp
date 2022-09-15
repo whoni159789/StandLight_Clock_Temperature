@@ -49,6 +49,9 @@ void View::lightView()
         case LIGHT_5:
             lightOn5();
             break;
+        case LIGNT_WARNING:
+            lightWarning();
+            break;
      }
 }
 
@@ -131,4 +134,36 @@ void View::lightOn5()
     light3->On();
     light4->On();
     light5->On();
+}
+
+void View::lightWarning()
+{
+    char buff[30];
+    sprintf(buff, "WARNING");
+    light_lcd->WriteStringXY(0, 0, buff);
+
+    
+    static unsigned int prevTime = 0;
+    static unsigned int state = 0;
+    if(millis() - prevTime > 500)
+    {
+        prevTime = millis();
+        state = !state;
+        if(state)
+        {
+            light1->On();
+            light2->On();
+            light3->On();
+            light4->On();
+            light5->On();
+        }
+        else
+        {
+            light1->Off();
+            light2->Off();
+            light3->Off();
+            light4->Off();
+            light5->Off();
+        }
+    }
 }

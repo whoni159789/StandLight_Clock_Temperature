@@ -3,6 +3,6 @@
 
 #pragma once
 
-enum {LIGHT_OFF, LIGHT_1, LIGHT_2, LIGHT_3, LIGHT_4, LIGHT_5};
+enum {LIGHT_OFF, LIGHT_1, LIGHT_2, LIGHT_3, LIGHT_4, LIGHT_5, LIGNT_WARNING};
 
 #endif

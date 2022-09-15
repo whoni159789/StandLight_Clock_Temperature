@@ -30,6 +30,7 @@ public:
     void lightOn3();
     void lightOn4();
     void lightOn5();
+    void lightWarning();
 
 };
 

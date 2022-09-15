@@ -19,9 +19,13 @@ void Service::updateState(std::string strState)
             if (strState == "modeButton") 
             {
                 lightState = LIGHT_1;
-                view->setState(lightState);
             }
-            
+            if (strState == "warningTemp") 
+            {
+                lightState = LIGNT_WARNING;
+            }
+            view->setState(lightState);
+
         break;
 
         case LIGHT_1:
@@ -32,6 +36,10 @@ void Service::updateState(std::string strState)
             if (strState == "powerButton") 
             {
                 lightState = LIGHT_OFF;
+            }
+            if (strState == "warningTemp") 
+            {
+                lightState = LIGNT_WARNING;
             }
             view->setState(lightState);
         break;
@@ -45,6 +53,10 @@ void Service::updateState(std::string strState)
             {
                 lightState = LIGHT_OFF;
             }
+            if (strState == "warningTemp") 
+            {
+                lightState = LIGNT_WARNING;
+            }
             view->setState(lightState);
         break;
 
@@ -56,6 +68,10 @@ void Service::updateState(std::string strState)
             if (strState == "powerButton") 
             {
                 lightState = LIGHT_OFF;
+            }
+            if (strState == "warningTemp") 
+            {
+                lightState = LIGNT_WARNING;
             }
             view->setState(lightState);
         break;
@@ -69,6 +85,10 @@ void Service::updateState(std::string strState)
             {
                 lightState = LIGHT_OFF;
             }
+            if (strState == "warningTemp") 
+            {
+                lightState = LIGNT_WARNING;
+            }
             view->setState(lightState);
         break;
 
@@ -81,7 +101,19 @@ void Service::updateState(std::string strState)
             {
                 lightState = LIGHT_OFF;
             }
+            if (strState == "warningTemp") 
+            {
+                lightState = LIGNT_WARNING;
+            }
             view->setState(lightState);
+        break;
+
+        case LIGNT_WARNING:
+            if(strState == "normalTemp")
+            {
+                lightState = LIGHT_OFF;
+                view->setState(lightState);
+            }
         break;
     }
 }

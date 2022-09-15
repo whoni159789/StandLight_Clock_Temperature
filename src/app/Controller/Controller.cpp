@@ -27,6 +27,16 @@ void Controller::updateEvent(std::string strBtn)
     {
         clockservice->updateEvent();
     }
+
+    if(strBtn == "warningTemp")
+    {
+        service->updateState("warningTemp");
+    }
+
+    if(strBtn == "normalTemp")
+    {
+        service->updateState("normalTemp");
+    }
 }
 
 void Controller::updateTempHumid(DHT_Data dhtData)
