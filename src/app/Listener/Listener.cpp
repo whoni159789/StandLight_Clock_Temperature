@@ -36,16 +36,7 @@ void Listener::checkEvent()
         DHT_Data dhtData = this->dht11->readData();
         if(!dhtData.error)
         {
-            if(dhtData.Temp>=27)
-            {
-                controller->updateEvent("warningTemp");
-                controller->updateTempHumid(dhtData);
-            }
-            else
-            {
-                controller->updateEvent("normalTemp");
-                controller->updateTempHumid(dhtData);
-            }
+            controller->updateTempHumid(dhtData);
         }
     }
 }
